@@ -303,6 +303,13 @@ await db.delete(users)
                   by using the same database, schema, and data volume.
                 </p>
                 <div className="pt-4 border-t border-zinc-800">
+                  <h3 className="text-zinc-200 font-semibold mb-2">Infrastructure</h3>
+                  <ul className="list-disc list-inside space-y-1 text-sm text-zinc-500">
+                    <li><strong className="text-zinc-300">Database</strong> - Neon PostgreSQL in Southeast Asia (Singapore) / AWS ap-southeast-1</li>
+                    <li><strong className="text-zinc-300">Website</strong> - Hosted on Railway (Singapore) / AWS ap-southeast-1</li>
+                  </ul>
+                </div>
+                <div className="pt-4 border-t border-zinc-800">
                   <h3 className="text-zinc-200 font-semibold mb-2">Database Schema</h3>
                   <ul className="list-disc list-inside space-y-1 text-sm text-zinc-500">
                     <li><strong className="text-zinc-300">users</strong> - User accounts with email, name, timestamps</li>

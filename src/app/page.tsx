@@ -3,7 +3,7 @@
 import { useState, useCallback } from "react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+
 import { Badge } from "@/components/ui/badge";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { TestCard } from "@/components/test-card";
@@ -161,13 +161,23 @@ export default function Home() {
               A comprehensive performance benchmark comparing Prisma 7.1.0 and Drizzle ORM 0.45.0
               with real database queries on Neon PostgreSQL.
             </p>
-            <div className="max-w-2xl mx-auto pt-2">
+            <div className="max-w-2xl mx-auto pt-2 space-y-3">
               <p className="text-sm text-zinc-500 leading-relaxed">
                 This is a fun project I created to test and compare the performance differences between{" "}
                 <span className="text-emerald-400">Prisma</span> and{" "}
                 <span className="text-sky-400">Drizzle</span> ORMs. Each test measures real-world database
                 operations to help understand which ORM performs better for different use cases.
               </p>
+              <div className="flex items-center justify-center gap-4 text-xs text-zinc-500">
+                <span className="flex items-center gap-1.5">
+                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
+                  Database: Neon (Singapore)
+                </span>
+                <span className="flex items-center gap-1.5">
+                  <span className="w-1.5 h-1.5 rounded-full bg-sky-500" />
+                  Hosted on Railway (Singapore)
+                </span>
+              </div>
             </div>
             <div className="flex flex-col items-center justify-center gap-4 pt-6">
               <Link href="/about">
@@ -307,15 +317,11 @@ export default function Home() {
               </div>
             </TabsContent>
 
-            <TabsContent value="chart" className="space-y-8">
-              <Card className="bg-zinc-900/50 border-zinc-800">
-                <CardHeader>
-                  <CardTitle className="text-zinc-100">Performance Comparison</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <ComparisonChart results={allResults} />
-                </CardContent>
-              </Card>
+            <TabsContent value="chart" className="space-y-6">
+              <div className="bg-zinc-900 border border-zinc-800 rounded-xl p-5">
+                <p className="text-xs text-zinc-500 mb-4">Performance Comparison</p>
+                <ComparisonChart results={allResults} />
+              </div>
               <ResultsTable results={allResults} />
             </TabsContent>
           </Tabs>
