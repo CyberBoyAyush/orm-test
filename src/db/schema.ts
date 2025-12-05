@@ -75,7 +75,11 @@ export const postCategories = pgTable(
       .notNull()
       .references(() => categories.id, { onDelete: "cascade" }),
   },
-  (table) => [primaryKey({ columns: [table.postId, table.categoryId] })]
+  (table) => [
+    primaryKey({ columns: [table.postId, table.categoryId] }),
+    index("post_categories_post_id_idx").on(table.postId),
+    index("post_categories_category_id_idx").on(table.categoryId),
+  ]
 );
 
 export const postTags = pgTable(
@@ -88,7 +92,11 @@ export const postTags = pgTable(
       .notNull()
       .references(() => tags.id, { onDelete: "cascade" }),
   },
-  (table) => [primaryKey({ columns: [table.postId, table.tagId] })]
+  (table) => [
+    primaryKey({ columns: [table.postId, table.tagId] }),
+    index("post_tags_post_id_idx").on(table.postId),
+    index("post_tags_tag_id_idx").on(table.tagId),
+  ]
 );
 
 // Relations
